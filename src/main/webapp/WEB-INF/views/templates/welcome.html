@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- head部分 -->
+<div th:replace="common/head :: #header"></div>
+
+<body>
+
+<!-- 导航栏 -->
+<div th:replace="common/navigation :: #nav"></div>
+
+<div>
+    <ul>
+        <li>
+            <a href="/view/log/index">日志管理</a>
+        </li>
+        <li>
+            <a href="/view/bwlist/index">黑白名单管理</a>
+        </li>
+    </ul>
+</div>
+
+
+<!-- 全局js -->
+<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--自定义js -->
+</body>
+</html>
