@@ -1,6 +1,5 @@
 package org.tym.blinking.norwaylife.dal.dao;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,19 +30,19 @@ public class PhotoPathDAOTest {
 
     @Test
     public void addPhotoPath() throws Exception {
-        int count = photoPathDAO.addPhotoPath(new PhotoPath("xxxx.jpg", "xxxx.jpg"));
+        int count = photoPathDAO.addPhotoPath(new PhotoPath("2.jpg", "2.jpg"));
         System.out.println(count);
     }
 
     @Test
     public void deletePhotoPath() throws Exception {
-        int count = photoPathDAO.deletePhotoPath(new PhotoPath("xxxx.jpg", "xxxx.jpg"));
+        int count = photoPathDAO.deletePhotoPath(new PhotoPath("food/1.jpg", "1.jpg"));
         System.out.println(count);
     }
 
     @Test
     public void deletePhotoPathById() throws Exception {
-        int count = photoPathDAO.deletePhotoPathById(5);
+        int count = photoPathDAO.deletePhotoPathById(2);
         System.out.println(count);
     }
 }
