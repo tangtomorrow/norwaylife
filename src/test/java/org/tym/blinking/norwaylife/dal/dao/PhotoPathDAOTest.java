@@ -31,7 +31,7 @@ public class PhotoPathDAOTest {
 
     @Test
     public void getPhotoPathById() throws Exception {
-        int id = 5;
+        int id = 7;
         PhotoPath photoPath = photoPathDAO.getPhotoPathById(id);
         System.out.println(photoPath);
     }
@@ -45,17 +45,17 @@ public class PhotoPathDAOTest {
 
     @Test
     public void insertPhotoPath() throws Exception {
-        int count = photoPathDAO.insertPhotoPath(new PhotoPath("5.jpg", "5.jpg"));
+        int count = photoPathDAO.insertPhotoPath(new PhotoPath("2.jpg", "22.jpg", 10));
         System.out.println(count);
     }
 
     @Test
     public void insertPhotoPathBatch() throws Exception {
         List<PhotoPath> photoPaths = Lists.newArrayList();
-        photoPaths.add(new PhotoPath("5.jpg", "5.jpg"));
-        photoPaths.add(new PhotoPath("6.jpg", "6.jpg"));
-        photoPaths.add(new PhotoPath("7.jpg", "7.jpg"));
-        photoPaths.add(new PhotoPath("8.jpg", "8.jpg"));
+        photoPaths.add(new PhotoPath("5.jpg", "0.jpg", 10));
+        photoPaths.add(new PhotoPath("6.jpg", "6.jpg", 10));
+        photoPaths.add(new PhotoPath("7.jpg", "7.jpg", 10));
+        photoPaths.add(new PhotoPath("8.jpg", "8.jpg", 10));
 
         int count = photoPathDAO.insertPhotoPathBatch(photoPaths);
         System.out.println(count);
@@ -63,13 +63,13 @@ public class PhotoPathDAOTest {
 
     @Test
     public void deletePhotoPath() throws Exception {
-        int count = photoPathDAO.deletePhotoPath(new PhotoPath("food/1.jpg", "1.jpg"));
+        int count = photoPathDAO.deletePhotoPath("22.jpg");
         System.out.println(count);
     }
 
     @Test
     public void deletePhotoPathById() throws Exception {
-        int count = photoPathDAO.deletePhotoPathById(2);
+        int count = photoPathDAO.deletePhotoPathById(6);
         System.out.println(count);
     }
 

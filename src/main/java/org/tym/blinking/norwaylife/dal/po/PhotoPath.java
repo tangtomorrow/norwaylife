@@ -2,7 +2,7 @@ package org.tym.blinking.norwaylife.dal.po;
 
 import com.google.common.base.MoreObjects;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 /**
  * Created by tangtomorrow on 2017/2/27.
@@ -11,21 +11,24 @@ public class PhotoPath {
     private int id;
     private String fileName;
     private String filePath;
+    private long fileSize;
     private Timestamp insertTime;
     private Timestamp updateTime;
 
     public PhotoPath() {
     }
 
-    public PhotoPath(String fileName, String filePath) {
+    public PhotoPath(String fileName, String filePath, long fileSize) {
         this.fileName = fileName;
         this.filePath = filePath;
+        this.fileSize = fileSize;
     }
 
-    public PhotoPath(int id, String fileName, String filePath, Timestamp insertTime, Timestamp updateTime) {
+    public PhotoPath(int id, String fileName, String filePath, long fileSize, Timestamp insertTime, Timestamp updateTime) {
         this.id = id;
         this.fileName = fileName;
         this.filePath = filePath;
+        this.fileSize = fileSize;
         this.insertTime = insertTime;
         this.updateTime = updateTime;
     }
@@ -54,6 +57,14 @@ public class PhotoPath {
         this.filePath = filePath;
     }
 
+    public long getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(long fileSize) {
+        this.fileSize = fileSize;
+    }
+
     public Timestamp getInsertTime() {
         return insertTime;
     }
@@ -76,6 +87,7 @@ public class PhotoPath {
                 .add("id", id)
                 .add("fileName", fileName)
                 .add("filePath", filePath)
+                .add("fileSize", fileSize)
                 .add("insertTime", insertTime)
                 .add("updateTime", updateTime)
                 .toString();

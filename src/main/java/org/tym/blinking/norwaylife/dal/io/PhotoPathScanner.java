@@ -48,8 +48,7 @@ public class PhotoPathScanner {
         PhotoPath photoPath = new PhotoPath();
         photoPath.setFileName(file.getName());
         photoPath.setFilePath(photoRelativePath(rootPath, file.getAbsolutePath()));
-
-        System.out.println(photoPath);
+        photoPath.setFileSize(file.length());
 
         return photoPath;
     }
@@ -63,7 +62,6 @@ public class PhotoPathScanner {
 
         Preconditions.checkArgument(rootPath.length() <= absolutePath.length(), "absolute path is short than root path");
         Preconditions.checkArgument(absolutePath.indexOf(rootPath) == 0, "root path is not parent path of absolute path");
-
 
         return absolutePath.substring(rootPath.length());
     }

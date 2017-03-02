@@ -16,36 +16,36 @@ import java.util.List;
 public interface PhotoPathDAO {
 
     // 获取所有记录
-    @Select("SELECT id,file_name AS fileName,file_path AS filePath,insert_time AS insertTime,update_time AS updateTime FROM photo_path")
+    @Select("SELECT id,file_name AS fileName,file_path AS filePath,file_size AS fileSize,insert_time AS insertTime,update_time AS updateTime FROM photo_path")
     List<PhotoPath> getAllPhotoPath();
 
     // 根据id获取单条记录
-    @Select("SELECT id,file_name AS fileName,file_path AS filePath,insert_time AS insertTime,update_time AS updateTime FROM photo_path WHERE id = #{id}")
+    @Select("SELECT id,file_name AS fileName,file_path AS filePath,file_size AS fileSize,insert_time AS insertTime,update_time AS updateTime FROM photo_path WHERE id = #{id}")
     PhotoPath getPhotoPathById(@Param("id") int id);
 
     // 根据filePath获取单条记录
-    @Select("SELECT id,file_name AS fileName,file_path AS filePath,insert_time AS insertTime,update_time AS updateTime FROM photo_path WHERE file_path = #{filePath}")
+    @Select("SELECT id,file_name AS fileName,file_path AS filePath,file_size AS fileSize,insert_time AS insertTime,update_time AS updateTime FROM photo_path WHERE file_path = #{filePath}")
     PhotoPath getPhotoPathByFilePath(@Param("filePath") String filePath);
 
     // 插入单条记录
-    @Insert("INSERT INTO photo_path(file_name,file_path) VALUES(#{photoPath.fileName},#{photoPath.filePath})")
+    @Insert("INSERT INTO photo_path(file_name,file_path,file_size) VALUES(#{photoPath.fileName},#{photoPath.filePath},#{photoPath.fileSize})")
     int insertPhotoPath(@Param("photoPath") PhotoPath photoPath);
 
     // 批量插入
     @Insert({
             "<script>",
-            "INSERT INTO photo_path(file_name,file_path)",
+            "INSERT INTO photo_path(file_name,file_path,file_size)",
             "VALUES",
             "<foreach collection='photoPathList' item='photoPath' separator=','>",
-            "(#{photoPath.fileName,jdbcType=VARCHAR}, #{photoPath.filePath,jdbcType=VARCHAR})",
+            "(#{photoPath.fileName}, #{photoPath.filePath}, #{photoPath.fileSize})",
             "</foreach>",
             "</script>"
     })
     int insertPhotoPathBatch(@Param("photoPathList") List<PhotoPath> photoPathList);
 
-    // 根据name和path删除
-    @Delete("DELETE FROM photo_path WHERE file_name = #{photoPath.fileName} and file_path = #{photoPath.filePath}")
-    int deletePhotoPath(@Param("photoPath") PhotoPath photoPath);
+    // 根据path删除
+    @Delete("DELETE FROM photo_path WHERE file_path = #{filePath}")
+    int deletePhotoPath(@Param("filePath") String filePath);
 
     // 根据id删除
     @Delete("DELETE FROM photo_path WHERE id = #{id}")
