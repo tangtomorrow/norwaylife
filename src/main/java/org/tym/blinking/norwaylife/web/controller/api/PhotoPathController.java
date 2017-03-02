@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.tym.blinking.norwaylife.common.util.PropertyUtil;
-import org.tym.blinking.norwaylife.dal.po.PhotoPath;
 import org.tym.blinking.norwaylife.service.PhotoPathService;
 import org.tym.blinking.norwaylife.web.vo.common.RestResult;
 import org.tym.blinking.norwaylife.web.vo.common.ResultCode;
