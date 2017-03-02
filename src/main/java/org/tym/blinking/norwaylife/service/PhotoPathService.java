@@ -1,5 +1,6 @@
 package org.tym.blinking.norwaylife.service;
 
+import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tym.blinking.norwaylife.dal.dao.PhotoPathDAO;
@@ -22,6 +23,8 @@ public class PhotoPathService {
 
     // TODO 增加事务支持
     public int rebuildPhotoPathIndexByRootPath(String rootDir) {
+        Preconditions.checkNotNull(rootDir, "rootDir is null");
+
         // 删除现有的目录索引
         int originIndexCount = photoPathDAO.deleteAllPhotoPath();
 

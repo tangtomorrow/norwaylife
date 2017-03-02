@@ -40,6 +40,7 @@ public interface PhotoPathDAO {
     })
     int insertPhotoPathBatch(@Param("photoPathList") List<PhotoPath> photoPathList);
 
+    // 根据id更新
     @Update("UPDATE photo_path SET file_name=#{photoPath.fileName},file_path=#{photoPath.filePath},file_size=#{photoPath.fileSize} WHERE id=#{photoPath.id}")
     int updatePhotoPathById(@Param("photoPath") PhotoPath photoPath);
 
