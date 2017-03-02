@@ -1,5 +1,6 @@
 package org.tym.blinking.norwaylife.dal.dao;
 
+import com.google.common.collect.Lists;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,8 +30,34 @@ public class PhotoPathDAOTest {
     }
 
     @Test
-    public void addPhotoPath() throws Exception {
-        int count = photoPathDAO.addPhotoPath(new PhotoPath("2.jpg", "2.jpg"));
+    public void getPhotoPathById() throws Exception {
+        int id = 5;
+        PhotoPath photoPath = photoPathDAO.getPhotoPathById(id);
+        System.out.println(photoPath);
+    }
+
+    @Test
+    public void getPhotoPathByFilePath() throws Exception {
+        String filePath = "7.jpg";
+        PhotoPath photoPath = photoPathDAO.getPhotoPathByFilePath(filePath);
+        System.out.println(photoPath);
+    }
+
+    @Test
+    public void insertPhotoPath() throws Exception {
+        int count = photoPathDAO.insertPhotoPath(new PhotoPath("5.jpg", "5.jpg"));
+        System.out.println(count);
+    }
+
+    @Test
+    public void insertPhotoPathBatch() throws Exception {
+        List<PhotoPath> photoPaths = Lists.newArrayList();
+        photoPaths.add(new PhotoPath("5.jpg", "5.jpg"));
+        photoPaths.add(new PhotoPath("6.jpg", "6.jpg"));
+        photoPaths.add(new PhotoPath("7.jpg", "7.jpg"));
+        photoPaths.add(new PhotoPath("8.jpg", "8.jpg"));
+
+        int count = photoPathDAO.insertPhotoPathBatch(photoPaths);
         System.out.println(count);
     }
 
@@ -43,6 +70,12 @@ public class PhotoPathDAOTest {
     @Test
     public void deletePhotoPathById() throws Exception {
         int count = photoPathDAO.deletePhotoPathById(2);
+        System.out.println(count);
+    }
+
+    @Test
+    public void deleteAllPhotoPath() throws Exception {
+        int count = photoPathDAO.deleteAllPhotoPath();
         System.out.println(count);
     }
 }
