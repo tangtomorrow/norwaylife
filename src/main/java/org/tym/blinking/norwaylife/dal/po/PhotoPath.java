@@ -24,6 +24,13 @@ public class PhotoPath {
         this.fileSize = fileSize;
     }
 
+    public PhotoPath(int id, String fileName, String filePath, long fileSize) {
+        this.id = id;
+        this.fileName = fileName;
+        this.filePath = filePath;
+        this.fileSize = fileSize;
+    }
+
     public PhotoPath(int id, String fileName, String filePath, long fileSize, Timestamp insertTime, Timestamp updateTime) {
         this.id = id;
         this.fileName = fileName;

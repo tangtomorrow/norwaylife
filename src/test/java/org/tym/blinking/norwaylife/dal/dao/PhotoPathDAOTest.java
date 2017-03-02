@@ -62,6 +62,13 @@ public class PhotoPathDAOTest {
     }
 
     @Test
+    public void updatePhotoPathById() throws Exception {
+        PhotoPath photoPath = new PhotoPath(11, "2.jpg", "food/2.jpg", 100L);
+        int count = photoPathDAO.updatePhotoPathById(photoPath);
+        System.out.println(count);
+    }
+
+    @Test
     public void deletePhotoPath() throws Exception {
         int count = photoPathDAO.deletePhotoPath("22.jpg");
         System.out.println(count);

@@ -1,9 +1,6 @@
 package org.tym.blinking.norwaylife.dal.dao;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import org.tym.blinking.norwaylife.dal.po.PhotoPath;
 
@@ -42,6 +39,9 @@ public interface PhotoPathDAO {
             "</script>"
     })
     int insertPhotoPathBatch(@Param("photoPathList") List<PhotoPath> photoPathList);
+
+    @Update("UPDATE photo_path SET file_name=#{photoPath.fileName},file_path=#{photoPath.filePath},file_size=#{photoPath.fileSize} WHERE id=#{photoPath.id}")
+    int updatePhotoPathById(@Param("photoPath") PhotoPath photoPath);
 
     // 根据path删除
     @Delete("DELETE FROM photo_path WHERE file_path = #{filePath}")
