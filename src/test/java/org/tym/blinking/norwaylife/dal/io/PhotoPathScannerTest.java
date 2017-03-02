@@ -39,7 +39,7 @@ public class PhotoPathScannerTest {
     @Test
     public void photoRelativePath() {
         String rootPath = PropertyUtil.getString("photo.dir");
-        String absPath = "C:\\Work\\Intellij\\norwaylife\\photo\\food\\noodle.jpg".replace("\\","/");
+        String absPath = "C:\\Work\\Intellij\\norwaylife\\photo\\food\\noodle.jpg".replace("\\", "/");
 
         int index = absPath.indexOf(rootPath);
         if (index != 0) {

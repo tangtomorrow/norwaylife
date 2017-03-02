@@ -1,8 +1,6 @@
 package org.tym.blinking.norwaylife.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.type.SqlTimestampTypeHandler;
-import org.apache.ibatis.type.TypeHandler;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;

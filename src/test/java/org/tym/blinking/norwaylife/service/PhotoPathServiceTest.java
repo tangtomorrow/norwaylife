@@ -9,8 +9,6 @@ import org.tym.blinking.norwaylife.common.util.PropertyUtil;
 import org.tym.blinking.norwaylife.config.DataConfig;
 import org.tym.blinking.norwaylife.config.RootConfig;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by tangtomorrow on 2017/3/2.
  */
